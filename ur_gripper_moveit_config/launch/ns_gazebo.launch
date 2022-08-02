@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="robot" default=""/>
+    <group ns="$(arg robot)">
+
+        <!-- specify the planning pipeline -->
+        <arg name="pipeline" default="ompl" />
+
+       
+        <include file="$(dirname)/demo.launch" pass_all_args="true">
+            <!-- robot description is loaded by gazebo.launch, to enable Gazebo features -->
+            <arg name="load_robot_description" value="false" />
+            <arg name="moveit_controller_manager" value="ros_control" />
+        </include>
+
+    </group>
+
+</launch>

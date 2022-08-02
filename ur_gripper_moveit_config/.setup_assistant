@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/robot_gripper.srdf
   CONFIG:
-    author_name: David Ortega
+    author_name: david_o
     author_email: dortega@cidesi.edu.mx
-    generated_timestamp: 1651678542
+    generated_timestamp: 1653423206

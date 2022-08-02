@@ -5,8 +5,8 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the robot_gripper with the MoveIt Motion Planning Framework
   </description>
-  <author email="dortega@cidesi.edu.mx">David Ortega</author>
-  <maintainer email="dortega@cidesi.edu.mx">David Ortega</maintainer>
+  <author email="dortega@cidesi.edu.mx">david_o</author>
+  <maintainer email="dortega@cidesi.edu.mx">david_o</maintainer>
 
   <license>BSD</license>
 

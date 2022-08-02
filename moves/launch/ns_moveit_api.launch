@@ -1,0 +1,12 @@
+<launch>
+  <arg name="robot" default=""/>
+
+  <group ns="$(arg robot)">
+
+    <node name="moveit_api" pkg="moves" type="moveit_api" respawn="false" output="screen">
+      <rosparam command="load" file="$(find ur_gripper_moveit_config)/config/kinematics.yaml"/>
+      <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/>
+      <rosparam command="load" file="$(find ur_gripper_moveit_config)/config/ompl_planning.yaml"/>
+    </node>
+  </group>
+</launch>

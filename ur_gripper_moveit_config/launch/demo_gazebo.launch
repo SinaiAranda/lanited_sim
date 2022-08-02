@@ -9,7 +9,8 @@
 
   <!-- launch the gazebo simulator and spawn the robot -->
   <include file="$(dirname)/gazebo.launch" >
-  
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
   </include>
 
   <include file="$(dirname)/demo.launch" pass_all_args="true">

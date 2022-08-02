@@ -1,0 +1,53 @@
+controller_list:
+  - name: fake_r1_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r1shoulder_pan_joint
+      - r1shoulder_lift_joint
+      - r1elbow_joint
+      - r1wrist_1_joint
+      - r1wrist_2_joint
+      - r1wrist_3_joint
+  - name: fake_r2_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r2shoulder_pan_joint
+      - r2shoulder_lift_joint
+      - r2elbow_joint
+      - r2wrist_1_joint
+      - r2wrist_2_joint
+      - r2wrist_3_joint
+  - name: fake_r3_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r3shoulder_pan_joint
+      - r3shoulder_lift_joint
+      - r3elbow_joint
+      - r3wrist_1_joint
+      - r3wrist_2_joint
+      - r3wrist_3_joint
+  - name: fake_r1_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r1gripper_finger1_joint
+  - name: fake_r2_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r2gripper_finger1_joint
+  - name: fake_r3_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r3gripper_finger1_joint
+initial:  # Define initial robot poses per group
+  - group: r1_arm
+    pose: r1_home
+  - group: r2_arm
+    pose: r2_home
+  - group: r3_arm
+    pose: r3_home
+  - group: r1_gripper
+    pose: r1_gripper_open
+  - group: r2_gripper
+    pose: r2_gripper_open
+  - group: r3_gripper
+    pose: r3_gripper_open

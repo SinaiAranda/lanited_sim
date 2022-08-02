@@ -4,8 +4,6 @@
 
   
     <include file="$(find cell_sim)/launch/launch_gazebo.launch"/>
-
-    <group ns="cell_integration">
         
         <param name = "robot_description" command="$(find xacro)/xacro '$(find cell_description)/urdf/cell_integration.xacro'" />
 
@@ -17,15 +15,16 @@
                 
         </include>
 
-         <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+         <node pkg="robot_state_publisher" type="robot_state_publisher" name="r1_robot_state_publisher" args="--namespace=r1">
             <param name="publish_frequency" type="double" value="50.0" />
         </node>
+    
 
-        <include file="$(find cell_sim)/launch/launch_controller_ur5e.launch"/>
+        <include file="$(find cell_sim)/launch/launch_cell_controller.launch"/>
         <node name = "rqt_joint_trajectory_controller" pkg = "rqt_joint_trajectory_controller" type = "rqt_joint_trajectory_controller" />
 
   
-    </group>
+  
        
 
 

@@ -1,0 +1,150 @@
+r1_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r1shoulder_pan_joint
+    - r1shoulder_lift_joint
+    - r1elbow_joint
+    - r1wrist_1_joint
+    - r1wrist_2_joint
+    - r1wrist_3_joint
+  gains:
+    r1shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r1shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r1elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r1wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r1wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r1wrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r2_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r2shoulder_pan_joint
+    - r2shoulder_lift_joint
+    - r2elbow_joint
+    - r2wrist_1_joint
+    - r2wrist_2_joint
+    - r2wrist_3_joint
+  gains:
+    r2shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r2shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r2elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r2wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r2wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r2wrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r3_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r3shoulder_pan_joint
+    - r3shoulder_lift_joint
+    - r3elbow_joint
+    - r3wrist_1_joint
+    - r3wrist_2_joint
+    - r3wrist_3_joint
+  gains:
+    r3shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r3shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r3elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r3wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r3wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    r3wrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r1_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r1gripper_finger1_joint
+  gains:
+    r1gripper_finger1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r2_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r2gripper_finger1_joint
+  gains:
+    r2gripper_finger1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+r3_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - r3gripper_finger1_joint
+  gains:
+    r3gripper_finger1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

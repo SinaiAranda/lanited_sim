@@ -24,7 +24,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mesa_general/meshes/mesa_general_sola.dae" />
+          filename="package://mesa_general/meshes/mesa_general.dae" />
       </geometry>
       <material
         name="">
@@ -38,9 +38,9 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mesa_general/meshes/mesa_general_sola.dae" />
+          filename="package://mesa_general/meshes/mesa_general.dae" />
       </geometry>
     </collision>
   </link>
-
+   
 </robot>

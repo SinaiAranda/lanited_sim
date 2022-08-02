@@ -1,0 +1,11 @@
+<launch>
+    <arg name="robot" default=""/>
+
+    <group ns="$(arg robot)"> 
+    
+        <node name="pose_move_node" pkg="moves" type="pose_move_node" respawn="false" output="screen"/>    
+
+    </group>
+    
+
+</launch>

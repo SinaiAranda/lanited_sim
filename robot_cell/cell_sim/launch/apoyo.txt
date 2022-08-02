@@ -159,3 +159,34 @@
     
   </joint>
 
+ 
+    <!-- joint_state_controller -->
+    <rosparam file="$(find ur_e_gazebo)/controller/joint_state_controller.yaml" command="load"/>
+    <node name="r2joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
+  
+
+    <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur3e.yaml" command="load"/>
+    <node name="r2arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+
+    <!-- load other controllers -->
+    <node name="r2ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+    
+    <rosparam file="$(find robotiq_85_gazebo)/controller/gripper_controller_robotiq.yaml" command="load"/> 
+    <node name="r2gripper_controller_spawner" pkg="controller_manager" type="spawner" args="gripper" />
+  
+    <xacro:include filename="$(find ur_gripper_sim)/urdf/r2_ur3_onrobot_gripper.urdf.xacro" />  
+    <joint name="mesa_robot2_joint" type="fixed">
+      <parent link="mesa_base_link" />
+      <child link = "r2base_link" />
+      <origin xyz="1.1 -0.30 0.90" rpy="0.0 0.0 -1.57" />
+    </joint>
+
+    <xacro:include filename="$(find ur_gripper_sim)/urdf/r3_ur3_onrobot_gripper.urdf.xacro" />      
+    <joint name="mesa_robot3_joint" type="fixed">
+      <parent link="mesa_base_link" />
+      <child link = "r3base_link" />
+      <origin xyz="-1.1 -0.30 0.90" rpy="0.0 0.0 -1.57" />
+    </joint>
+
+ <!-- load other controllers -->
+    <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load r1joint_group_position_controller r2joint_group_position_controller" />

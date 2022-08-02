@@ -1,23 +1,36 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_gripper">
 
-   
+       <xacro:include filename="$(find mesa_general)/urdf/mesa_general.urdf" />
 
-    <xacro:include filename="$(find ur_gripper_sim)/urdf/ur5_robotiq_gripper.xacro" />    
-    <xacro:include filename="$(find mesa_general)/urdf/mesa_general.urdf" />
     <xacro:include filename="$(find mesa_general)/urdf/objects/block.urdf" />
     
     <joint name="mesa_block_joint" type="fixed">
-        <parent link="mesa_base_link" />
+        <parent link="world" />
         <child link = "block" />
-        <origin xyz="0.6 -0.3 0.99" rpy="0.0 0.0 0.0" />
+        <origin xyz="0.5 -0.3 0.92" rpy="0.0 0.0 0.0" />
       </joint>
+    <xacro:include filename="$(find ur_gripper_sim)/urdf/ur5_robotiq_gripper.urdf.xacro" />    
+    <joint name="mesa_robot1_joint" type="fixed">
+        <parent link="world" />
+        <child link = "r1base_link" />
+        <origin xyz="-0.1 -0.30 0.90" rpy="0.0 0.0 -1.57" />
+      </joint>
+   <xacro:include filename="$(find ur_gripper_sim)/urdf/r2_ur3_onrobot_gripper.urdf.xacro" />  
+    <joint name="mesa_robot2_joint" type="fixed">
+      <parent link="world" />
+      <child link = "r2base_link" />
+      <origin xyz="1.1 -0.30 0.90" rpy="0.0 0.0 -1.57" />
+    </joint>
+     <xacro:include filename="$(find ur_gripper_sim)/urdf/r3_ur3_onrobot_gripper.urdf.xacro" />      
+    <joint name="mesa_robot3_joint" type="fixed">
+      <parent link="world" />
+      <child link = "r3base_link" />
+      <origin xyz="-1.1 -0.30 0.90" rpy="0.0 0.0 -1.57" />
+    </joint>
 
-    <joint name="mesa_robot_joint" type="fixed">
-        <parent link="mesa_base_link" />
-        <child link = "base_link" />
-        <origin xyz="0.02 -0.220 0.99" rpy="0.0 0.0 -1.57" />
-      </joint>
+
+  
 
 <link name="world"/>
   <joint name="world_mesa" type="fixed">
@@ -26,10 +39,11 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-   <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamesapce>/gripper_2fs</robotNamesapce>
-    </plugin>
+  <gazebo>
+    <plugin name="ros_control" filename="libgazebo_ros_control.so">
+      <!--robotNamespace>/</robotNamespace-->
+      <!--robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType-->
+    </plugin>  
   </gazebo>
 
 </robot>

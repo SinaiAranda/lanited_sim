@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-    <param name = "robot_description" command="$(find xacro)/xacro '$(find ur_gripper_sim)/urdf/ur5_robotiq_gripper.urdf.xacro'" />
+    <param name = "robot_description" command="$(find xacro)/xacro '$(find ur_gripper_sim)/urdf/ur5_robotiq_gripper.xacro'" />
 
     <node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "robot_state_publisher"/>
 

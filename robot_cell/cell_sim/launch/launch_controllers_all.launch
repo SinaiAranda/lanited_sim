@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+ 
+ 
+    
+    <!-- joint_state_controller -->
+    <rosparam file="$(find ur_e_gazebo)/controller/joint_state_controller.yaml" command="load"/>
+    <node name="r1joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
+  
+
+    <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
+    <node name="r1arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+
+    <!-- load other controllers -->
+    <node name="r1ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+
+    <rosparam file="$(find robotiq_85_gazebo)/controller/gripper_controller_robotiq.yaml" command="load"/> 
+    <node name="r1gripper_controller_spawner" pkg="controller_manager" type="spawner" args="gripper" />
+  
+
+   
+  
+
+   
+  
+
+</launch>

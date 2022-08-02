@@ -1,0 +1,10 @@
+<launch>
+    <arg name="robot" default=""/>
+
+    <group ns="$(arg robot)">
+        <include file="$(find ur_gripper_moveit_config)/launch/demo.launch"/>
+        
+    </group>
+    
+
+</launch>

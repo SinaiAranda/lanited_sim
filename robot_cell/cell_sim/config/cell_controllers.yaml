@@ -1,0 +1,64 @@
+r1/arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - r1shoulder_pan_joint
+     - r1shoulder_lift_joint
+     - r1elbow_joint
+     - r1wrist_1_joint
+     - r1wrist_2_joint
+     - r1wrist_3_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      r1shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      r1shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      r1elbow_joint: {trajectory: 0.1, goal: 0.1}
+      r1wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      r1wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      r1wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+r2/arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - r2shoulder_pan_joint
+     - r2shoulder_lift_joint
+     - r2elbow_joint
+     - r2wrist_1_joint
+     - r2wrist_2_joint
+     - r2wrist_3_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      r2shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      r2shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      r2elbow_joint: {trajectory: 0.1, goal: 0.1}
+      r2wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      r2wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      r2wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+r3/arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - r3shoulder_pan_joint
+     - r3shoulder_lift_joint
+     - r3elbow_joint
+     - r3wrist_1_joint
+     - r3wrist_2_joint
+     - r3wrist_3_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      r3shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      r3shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      r3elbow_joint: {trajectory: 0.1, goal: 0.1}
+      r3wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      r3wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      r3wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10

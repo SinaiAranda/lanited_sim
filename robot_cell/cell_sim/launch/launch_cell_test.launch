@@ -3,7 +3,7 @@
 <launch>
 
   
-    <!--include file="$(find cell_sim)/launch/launch_gazebo.launch"/-->
+    <include file="$(find cell_sim)/launch/launch_gazebo.launch"/>
 
   
 
@@ -36,7 +36,7 @@
   
     </group>
 
-    <!--include file="$(find cell_sim)/launch/launch_robots_ur5.launch"/-->
+    <include file="$(find cell_sim)/launch/launch_robots_ur5.launch"/>
 
 
  
