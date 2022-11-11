@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: multi-robot_description
+    relative_path: urdf/multi-robot_grippers.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/multi_robots_cell_lanited.srdf
+  CONFIG:
+    author_name: Sinaí Aranda Miramontes
+    author_email: sinai.aranda@cidesi.edu.mx
+    generated_timestamp: 1667585492

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="eje_ext" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+  <xacro:include filename="$(find eje_ext_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find eje_ext_description)/urdf/eje_ext.xacro" />
+
+  <!-- arm -->
+  <xacro:eje_ext prefix="" transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "eje_extern_part_1_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>

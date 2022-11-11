@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <include file="$(find ur_gripper_sim)/launch/ur5_gripper.launch"/>
-
-</launch>

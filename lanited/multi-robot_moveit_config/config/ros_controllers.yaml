@@ -1,0 +1,224 @@
+# MoveIt-specific simulation settings
+moveit_sim_hw_interface:
+    joint_model_group: controllers_initial_group_
+    joint_model_group_pose: controllers_initial_pose_
+# Settings for ros_control control loop
+generic_hw_control_loop:
+    loop_hz: 300
+    cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+    joints:
+        - ur5_B_shoulder_pan_joint
+        - ur5_B_shoulder_lift_joint
+        - ur5_B_elbow_joint
+        - ur5_B_wrist_1_joint
+        - ur5_B_wrist_2_joint
+        - ur5_B_wrist_3_joint
+        
+        - ur3_A_shoulder_pan_joint
+        - ur3_A_shoulder_lift_joint
+        - ur3_A_elbow_joint
+        - ur3_A_wrist_1_joint
+        - ur3_A_wrist_2_joint
+        - ur3_A_wrist_3_joint
+        
+        - ur3_C_shoulder_pan_joint
+        - ur3_C_shoulder_lift_joint
+        - ur3_C_elbow_joint
+        - ur3_C_wrist_1_joint
+        - ur3_C_wrist_2_joint
+        - ur3_C_wrist_3_joint
+        
+        - eje_extern_joint
+    sim_control_mode: 1  # 0: position, 1: velocity
+
+ur5_B_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - ur5_B_shoulder_pan_joint
+    - ur5_B_shoulder_lift_joint
+    - ur5_B_elbow_joint
+    - ur5_B_wrist_1_joint
+    - ur5_B_wrist_2_joint
+    - ur5_B_wrist_3_joint
+  gains:
+    ur5_B_shoulder_pan_joint:
+      p: 1000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur5_B_shoulder_lift_joint:
+      p: 5000
+      d: 30
+      i: 100
+      i_clamp: 400
+    ur5_B_elbow_joint:
+      p: 5000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur5_B_wrist_1_joint:
+      p: 400
+      d: 10
+      i: 1.0
+      i_clamp: 100
+    ur5_B_wrist_2_joint:
+      p: 150
+      d: 5
+      i: 0.01
+      i_clamp: 100
+    ur5_B_wrist_3_joint:
+      p: 30
+      d: 0.01
+      i: 0.1
+      i_clamp: 100
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate:  25
+    action_monitor_rate: 10
+    
+ur3_A_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - ur3_A_shoulder_pan_joint
+    - ur3_A_shoulder_lift_joint
+    - ur3_A_elbow_joint
+    - ur3_A_wrist_1_joint
+    - ur3_A_wrist_2_joint
+    - ur3_A_wrist_3_joint
+  gains:
+    ur3_A_shoulder_pan_joint:
+      p: 1000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur3_A_shoulder_lift_joint:
+      p: 5000
+      d: 30
+      i: 100
+      i_clamp: 400
+    ur3_A_elbow_joint:
+      p: 5000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur3_A_wrist_1_joint:
+      p: 300
+      d: 0.1
+      i: 0.09
+      i_clamp: 100
+    ur3_A_wrist_2_joint:
+      p: 100
+      d: 0.1
+      i: 0.01
+      i_clamp: 100
+    ur3_A_wrist_3_joint:
+      p: 300
+      d: 0.1
+      i: 0.01
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate:  25
+    action_monitor_rate: 10
+    
+ur3_C_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - ur3_C_shoulder_pan_joint
+    - ur3_C_shoulder_lift_joint
+    - ur3_C_elbow_joint
+    - ur3_C_wrist_1_joint
+    - ur3_C_wrist_2_joint
+    - ur3_C_wrist_3_joint
+  gains:
+    ur3_C_shoulder_pan_joint:
+      p: 1000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur3_C_shoulder_lift_joint:
+      p: 5000
+      d: 30
+      i: 100
+      i_clamp: 400
+    ur3_C_elbow_joint:
+      p: 5000
+      d: 50
+      i: 10
+      i_clamp: 100
+    ur3_C_wrist_1_joint:
+      p: 300
+      d: 0.1
+      i: 0.09
+      i_clamp: 100
+    ur3_C_wrist_2_joint:
+      p: 100
+      d: 0.1
+      i: 0.01
+      i_clamp: 100
+    ur3_C_wrist_3_joint:
+      p: 300
+      d: 0.1
+      i: 0.01
+      i_clamp: 100
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate:  25
+    action_monitor_rate: 10
+    
+axis_ext_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - eje_extern_joint
+  gains:
+    eje_extern_joint:
+      p: 250
+      d: 150
+      i: 1.0
+      i_clamp: 100
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate:  25
+    action_monitor_rate: 10
+initial:  # Define initial robot poses.
+  - group: ur3_A
+    pose: ready
+  - group: ur5_B
+    pose: ready
+  - group: ur3_C
+    pose: ready
+  - group: axis_ext
+    pose: home

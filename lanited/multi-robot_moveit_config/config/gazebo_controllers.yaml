@@ -1,0 +1,91 @@
+# Publish joint_states
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+  
+gazebo_ros_control:   
+  pid_gains:
+    ur5_B_shoulder_pan_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_shoulder_lift_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_elbow_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_wrist_1_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_wrist_2_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_wrist_3_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_shoulder_pan_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_shoulder_lift_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_elbow_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_wrist_1_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_wrist_2_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_A_wrist_3_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_shoulder_pan_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_shoulder_lift_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_elbow_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_wrist_1_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_wrist_2_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_wrist_3_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    eje_extern_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur5_B_gripper_left_finger_joint:
+      p: 100
+      d: 0.01
+      i: 10
+    ur3_C_gripper_left_finger_joint:
+      p: 100
+      d: 0.01
+      i: 10

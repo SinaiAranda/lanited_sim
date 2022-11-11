@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="eje_ext_transmission" params="prefix hw_interface">
+
+    <transmission name="${prefix}eje_extern_part_1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}eje_extern_joint">
+        <hardwareInterface>${hw_interface}</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}eje_extern_part_1_motor">
+        <hardwareInterface>${hw_interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>

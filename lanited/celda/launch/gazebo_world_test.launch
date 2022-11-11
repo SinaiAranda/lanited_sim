@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="paused" default="true"/>
+  <arg name="gazebo_gui" default="true"/>
+  
+  <arg name="world_name" default="worlds/empty.world"/>
+
+  <!-- Export env variable so that gazebo finds our models -->
+  <env name="GAZEBO_MODEL_PATH"
+       value="$(find ur5_gripper_moveit_config)/worlds/models:$(optenv GAZEBO_MODEL_PATH)" />
+
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find celda)/worlds/lanited.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+  </include>
+
+</launch>

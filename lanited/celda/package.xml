@@ -1,0 +1,27 @@
+<package>
+
+  <name>celda</name>
+  <version>0.3.0</version>
+  <description>
+     An automatically generated package with all the configuration and launch files for using the ur5 with the MoveIt! Motion Planning Framework
+  </description>
+  <author email="alex@alex.com">Alex</author>
+  <maintainer email="alex@alex.com">Alex</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://moveit.ros.org/</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <run_depend>gazebo_ros</run_depend>
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/models"/>
+    <gazebo_ros gazebo_resource_path="${prefix}/worlds/meshes"/>                    
+  </export>
+  
+</package>

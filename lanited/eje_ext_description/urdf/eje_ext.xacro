@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find eje_ext_description)/urdf/eje_ext.gazebo.xacro" />
+  <xacro:include filename="$(find eje_ext_description)/urdf/eje_ext.transmission.xacro" />
+  
+  <xacro:macro name="eje_ext" params="prefix transmission_hw_interface:=hardware_interface/PositionJointInterface">
+
+    <xacro:macro name="link_gazebo" params="link">
+      <gazebo reference="${link}">
+        <material>Gazebo/Grey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+      </gazebo>
+    </xacro:macro>
+    
+    <link name="${prefix}eje_extern_part_1_link" >
+      <inertial>
+        <origin xyz="0.137802209307 0.090396 0.0227196811405" rpy="0 0 0"/>
+        <mass value="21.80"/>
+        <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://eje_ext_description/meshes/eje_ext_ur_part-1.STL"/>
+        </geometry>
+        <material name="LightGrey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://eje_ext_description/meshes/eje_ext_ur_part-1.STL"/>
+        </geometry>
+      </collision>
+    </link>
+    <xacro:link_gazebo link="${prefix}eje_extern_part_1_link"/>
+        
+    <link name="${prefix}eje_extern_part_2_link" >
+      <inertial>
+        <origin xyz="0.137802209307 0.090396 0.0227196811405" rpy="0 0 0"/>
+        <mass value="21.80"/>
+        <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://eje_ext_description/meshes/eje_ext_ur_part-2.STL"/>
+        </geometry>
+        <material name="LightGrey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://eje_ext_description/meshes/eje_ext_ur_part-2.STL"/>
+        </geometry>
+      </collision>
+    </link>
+    <xacro:link_gazebo link="${prefix}eje_extern_part_2_link"/>
+    
+    <joint name="${prefix}eje_extern_joint" type="prismatic">
+      <parent link="${prefix}eje_extern_part_1_link" />
+      <child link = "${prefix}eje_extern_part_2_link" />
+      <origin xyz="-0.088 0.2275 0.06125" rpy="0.0 0.0 3.14160" />
+      <axis xyz="0 1 0" />
+      <limit effort="30" velocity="1.0" lower="-1.3" upper="0" />
+      <dynamics damping="1.0"/>
+    </joint>
+
+    <xacro:eje_ext_transmission prefix="${prefix}" hw_interface="${transmission_hw_interface}" />
+    <xacro:eje_ext_gazebo prefix="${prefix}" />
+
+  </xacro:macro>
+</robot>

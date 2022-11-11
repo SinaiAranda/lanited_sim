@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="eje_ext" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface"/>
+
+  <!-- common stuff -->
+
+  <xacro:include filename="$(find multi-robot_description)/urdf/common.gazebo.xacro" />
+
+  <xacro:include filename="$(find eje_ext_description)/urdf/eje_ext.xacro" />
+
+  <link name="world" />
+
+  <!-- arm -->
+  <xacro:eje_ext prefix="" transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "eje_extern_part_1_link" />
+    <origin xyz="0.530 0.765 0.87457" rpy="0.0 0.0 3.1416" />
+  </joint>
+
+  <!-- ur5-B -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5_robot prefix="ur5_B_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="eje_ur5_B" type="fixed">
+    <parent link="eje_extern_part_2_link" />
+    <child link = "ur5_B_base_link" />
+    <origin xyz="0.0 0.0 0.05075" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+  <!-- ur3 -->
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro" />
+
+  <!-- arm-A -->
+  <xacro:ur3_robot prefix="ur3_A_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="world_ur3_A" type="fixed">
+    <parent link="world" />
+    <child link = "ur3_A_base_link" />
+    <origin xyz="0.712 1.115 0.90582" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+  <!-- arm-C -->
+  <xacro:ur3_robot prefix="ur3_C_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="world_ur3_C" type="fixed">
+    <parent link="world" />
+    <child link = "ur3_C_base_link" />
+    <origin xyz="0.680 -1.115 0.90582" rpy="0.0 0.0 0.0" />
+  </joint>  
+  
+</robot>

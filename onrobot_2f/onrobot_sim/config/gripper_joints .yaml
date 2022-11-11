@@ -1,5 +1,0 @@
-joint_group_position_controller:
-  type: position_controllers/JointGroupPositionController
-  joints:
-     - base_to_finger_1
-     - base_to_finger_2

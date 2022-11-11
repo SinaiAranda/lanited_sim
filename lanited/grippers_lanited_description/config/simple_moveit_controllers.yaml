@@ -1,0 +1,7 @@
+controller_list:
+    - name: left_finger_controller
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      default: true
+      joints:
+        - left_finger_joint

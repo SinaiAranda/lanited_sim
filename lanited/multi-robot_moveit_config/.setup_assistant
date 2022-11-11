@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: multi-robot_description
+    relative_path: urdf/multi-robot.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/eje_ext.srdf
+  CONFIG:
+    author_name: sinai
+    author_email: sinai.aranda@cidesi.edu.mx
+    generated_timestamp: 1665501604

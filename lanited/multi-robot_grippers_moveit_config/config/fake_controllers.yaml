@@ -1,0 +1,57 @@
+controller_list:
+  - name: fake_ur5_B_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur5_B_shoulder_pan_joint
+      - ur5_B_shoulder_lift_joint
+      - ur5_B_elbow_joint
+      - ur5_B_wrist_1_joint
+      - ur5_B_wrist_2_joint
+      - ur5_B_wrist_3_joint
+  - name: fake_ur3_A_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur3_A_shoulder_pan_joint
+      - ur3_A_shoulder_lift_joint
+      - ur3_A_elbow_joint
+      - ur3_A_wrist_1_joint
+      - ur3_A_wrist_2_joint
+      - ur3_A_wrist_3_joint
+  - name: fake_ur3_C_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur3_C_shoulder_pan_joint
+      - ur3_C_shoulder_lift_joint
+      - ur3_C_elbow_joint
+      - ur3_C_wrist_1_joint
+      - ur3_C_wrist_2_joint
+      - ur3_C_wrist_3_joint
+  - name: fake_axis_ext_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - eje_extern_joint
+  - name: fake_ur5_B_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur5_B_gripper_left_finger_joint
+  - name: fake_ur3_A_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      []
+  - name: fake_ur3_C_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur3_C_gripper_left_finger_joint
+initial:  # Define initial robot poses per group
+  - group: ur5_B
+    pose: home
+  - group: ur3_A
+    pose: home
+  - group: ur3_C
+    pose: home
+  - group: axis_ext
+    pose: home
+  - group: ur5_B_gripper
+    pose: open
+  - group: ur3_C_gripper
+    pose: open

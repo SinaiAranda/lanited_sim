@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find multi-robot_grippers_moveit_config)/config/simple_moveit_controllers.yaml" command="load"/>
+  <rosparam file="$(find multi-robot_grippers_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="ur5_B_controller ur3_A_controller ur3_C_controller axis_ext_controller ur5_B_gripper_controller  ur3_C_gripper_controller"/>
+
+</launch>

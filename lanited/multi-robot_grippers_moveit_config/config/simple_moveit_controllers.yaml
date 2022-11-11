@@ -1,0 +1,52 @@
+controller_list:
+  - name: ur5_B_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - ur5_B_shoulder_pan_joint
+      - ur5_B_shoulder_lift_joint
+      - ur5_B_elbow_joint
+      - ur5_B_wrist_1_joint
+      - ur5_B_wrist_2_joint
+      - ur5_B_wrist_3_joint
+  - name: ur3_A_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - ur3_A_shoulder_pan_joint
+      - ur3_A_shoulder_lift_joint
+      - ur3_A_elbow_joint
+      - ur3_A_wrist_1_joint
+      - ur3_A_wrist_2_joint
+      - ur3_A_wrist_3_joint
+  - name: ur3_C_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - ur3_C_shoulder_pan_joint
+      - ur3_C_shoulder_lift_joint
+      - ur3_C_elbow_joint
+      - ur3_C_wrist_1_joint
+      - ur3_C_wrist_2_joint
+      - ur3_C_wrist_3_joint
+  - name: axis_ext_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - eje_extern_joint
+  - name: ur5_B_gripper_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - ur5_B_gripper_left_finger_joint
+  - name: ur3_C_gripper_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - ur3_C_gripper_left_finger_joint

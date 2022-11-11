@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="multi_robots_cell_lanited" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface"/>
+
+  <!-- common stuff -->
+
+  <xacro:include filename="$(find multi-robot_description)/urdf/common.gazebo.xacro" />
+
+  <xacro:include filename="$(find eje_ext_description)/urdf/eje_ext.xacro" />
+
+  <link name="world" />
+
+  <!-- Axis extern -->
+  <xacro:eje_ext prefix="" transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "eje_extern_part_1_link" />
+    <origin xyz="0.530 0.765 0.87457" rpy="0.0 0.0 3.1416" />
+  </joint>
+
+  <!-- ur5-B -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5_robot prefix="ur5_B_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="eje_ur5_B" type="fixed">
+    <parent link="eje_extern_part_2_link" />
+    <child link = "ur5_B_base_link" />
+    <origin xyz="0.0 0.0 0.05075" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+  <!-- Gripper -->
+  <xacro:include filename="$(find grippers_lanited_description)/urdf/onrobot_2fg7.xacro" />
+  <xacro:onrobot_2fg7_gripper prefix="ur5_B_gripper_"/>
+  
+  <joint name="ur5_B_gripper_robot" type="fixed">
+    <parent link="ur5_B_wrist_3_link" />
+    <child link = "ur5_B_gripper_base_link" />
+    <origin xyz="0.0 0.07 0.0" rpy="-1.5708 0 0.0" />
+  </joint>
+  <xacro:include filename="$(find grippers_lanited_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
+  <xacro:include filename="$(find grippers_lanited_description)/urdf/mimic_fix.urdf.xacro"/>
+  <xacro:gzplugin_grasp_fix prefix="ur5_B_gripper_" palm_link="ur5_B_wrist_3_link"/>
+  <xacro:mimic_fix prefix="ur5_B_gripper_" />
+  
+  <!-- ur3 -->
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro" />
+
+  <!-- arm-A -->
+  <xacro:ur3_robot prefix="ur3_A_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="world_ur3_A" type="fixed">
+    <parent link="world" />
+    <child link = "ur3_A_base_link" />
+    <origin xyz="0.712 1.115 0.90582" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+  <!-- Gripper Vacuum -->
+  <link name="ur3_A_vacuum_gripper">
+    <gravity>0</gravity>
+    <visual>
+      <geometry>
+        <mesh filename="package://grippers_lanited_description/meshes/vacuum_gripper.STL"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://grippers_lanited_description/meshes/vacuum_gripper.STL"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.635"/>
+      <inertia ixx="1.15" ixy="-1.27" ixz="-0.19" iyy="1.48" iyz="0.17" izz="2.57"/>
+    </inertial>
+  </link>
+
+  <joint name="ur3_A_vacuum_gripper_joint" type="fixed">
+    <parent link="ur3_A_wrist_3_link" />
+    <child link="ur3_A_vacuum_gripper" />
+    <origin xyz="0.0 0.075 0.0" rpy="-1.5708 0 0.0" />
+  </joint>
+  <gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/robot/multi_robots_cell_lanited</robotNamespace>
+      <bodyName>ur3_A_vacuum_gripper</bodyName>
+      <topicName>ur3_A_grasping</topicName>
+    </plugin>
+  </gazebo>
+  
+  <!-- arm-C -->
+  <xacro:ur3_robot prefix="ur3_C_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  
+  <joint name="world_ur3_C" type="fixed">
+    <parent link="world" />
+    <child link = "ur3_C_base_link" />
+    <origin xyz="0.680 -1.115 0.90582" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+  <!-- Gripper -->
+  <xacro:onrobot_2fg7_gripper prefix="ur3_C_gripper_" />
+  
+  <joint name="ur3_C_gripper_robot" type="fixed">
+    <parent link="ur3_C_wrist_3_link" />
+    <child link = "ur3_C_gripper_base_link" />
+    <origin xyz="0.0 0.07 0.0" rpy="-1.5708 0 0.0" />
+  </joint>
+  <xacro:include filename="$(find grippers_lanited_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
+  <xacro:include filename="$(find grippers_lanited_description)/urdf/mimic_fix.urdf.xacro"/>
+  <xacro:gzplugin_grasp_fix prefix="ur3_C_gripper_"  palm_link="ur3_C_wrist_3_link" />
+  <xacro:mimic_fix prefix="ur3_C_gripper_"/>
+  
+</robot>
+

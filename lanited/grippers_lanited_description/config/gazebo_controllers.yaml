@@ -1,0 +1,12 @@
+
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+gazebo_ros_control: 
+  pid_gains:
+    left_finger_controller: 
+      p: 100.0
+      d: 10.0
+      i: 0.01
